@@ -27,5 +27,25 @@ void tokenizing() {
 
 
 /* Version 2 */
+	printf("*** Start of Tokenizing Phrases Demo ***\n");
+	char phrases[BUFFER_SIZE];   //create an array of char called phrases with size of BUFFER_SIZE
+	char* nextPhrase = NULL;  //create a char pointer called nextPhrase
+	int phrasesCounter;   //create an int call phrasesCounter
+	do {
+		printf("Type a few phrases separated by comma (q- to quit):\n");
+		fgets(phrases, BUFFER_SIZE, stdin);   //read user's input and store it into phrases
+		phrases[strlen(phrases) - 1] = '\0';  //set the last character of the string to '\0' (Terminator), prevent buffer flow
+		if (strcmp(phrases, "q") != 0) {
+			nextPhrase = strtok(phrases, ",");    //Split string into tokens, separated by ","
+			phrasesCounter = 1;
+			while (nextPhrase) {                      //if that is not the end of the string, it will keep looping
+				printf("Phrase #%d is \'%s\'\n", phrasesCounter++, nextPhrase);  //print out the output and add 1 to phrasesCounter so that it points to next character
+				nextPhrase = strtok(NULL, ",");   
+			}
+			
+		}
+	} while (strcmp(phrases, "q") != 0);   //compare the string with "q"
+	printf("*** End of Tokenizing Phrases Demo ***\n\n");
+	
 
 }

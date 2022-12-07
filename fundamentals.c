@@ -32,4 +32,17 @@ void fundamentals(void)
         }
     } while (strcmp(buffer1, "q")!= 0);      // the loop wont quit unless you put a q input.
     printf("*** End of Indexing Strings Demo ***\n\n");
+
+    /* Version 2 */
+    printf("*** Start of Measuring Strings Demo ***\n");
+    char buffer2[BUFFER_SIZE];  //create an array of char called buffer2 with size of BUFFER_SIZE
+    do {
+        printf("Type a string (q - to quit):\n");
+        fgets(buffer2, BUFFER_SIZE, stdin);   //read user's input and store it into buffer2
+        buffer2[strlen(buffer2)-1] = '\0'; //set the last character of the string to '\0' (Terminator), prevent buffer flow
+        if (strcmp(buffer2, "q" != 0))     //compare the string with "q"
+            printf("The length of \'%s\' is %d characters\n", buffer2, (int)strlen(buffer2));  //convert position number to int and pass it to the print out
+
+    } while (strcmp(buffer2, "q") != 0);   //compare the string with "q"
+    printf("*** End of Measuring Strings Demo Demo ***\n\n");
 }
